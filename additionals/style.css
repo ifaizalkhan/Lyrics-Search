@@ -1,0 +1,147 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  font-family: "Open Sans", sans-serif;
+  /* background-color: black; */
+}
+body {
+  background: radial-gradient(circle, #c9c6db, #7a7d93 60%);
+  /* background-color: black;
+    background-image: url(download.png); */
+  /* background-image: url('download.png'), radial-gradient(
+        circle at top left, #785ec7, #a0a5c9 60% 
+    );; */
+}
+
+#main-cont {
+  background-image: url("https://images.unsplash.com/photo-1535587566541-97121a128dc5?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80");
+  /* background-image: url("https://images.unsplash.com/photo-1606339279668-e7ef2b1bd53b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1173&q=80"); */
+
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 100px 0px;
+  position: relative;
+}
+
+#main-cont a, #main-heading{
+  text-decoration: none;
+  color: white;
+  margin: 15px 0;
+}
+
+.search-form {
+  width: 500px;
+  max-width: 100%;
+  position: relative;
+  padding: 0 10px;
+}
+
+#search {
+  border: 0;
+  border-radius: 50px;
+  font-size: 16px;
+  width: 100%;
+  padding: 15px 30px;
+  /* margin: 0 10px; */
+  position: relative;
+}
+
+#btn {
+  border-radius: 50px;
+  font-size: 16px;
+  padding: 12px 30px;
+  /* margin: 0 10px; */
+  position: absolute;
+  top: 1px;
+  /* right: 2px; */
+  right: 10px;
+}
+
+button {
+  color: whitesmoke;
+  background-color: rgb(168, 18, 168);
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.95);
+}
+
+#suggestions {
+  /* border: 2px solid black; */
+  color: black;
+  margin: 30px auto;
+  max-width: 100%;
+  width: 500px;
+  /* background-image: radial-gradient(circle at top left,#28214c,#1c1d23 60%); */
+}
+
+#suggestions h4{
+    text-align: center;
+}
+
+#suggestions h2{
+    text-align: center;
+    font-weight: 300;
+    margin: 10px 0;
+}
+
+#suggestions audio{
+    margin: 5px auto;
+    width: 90%;
+    height:28px ;
+    display: flex;
+}
+
+#suggestions p{
+    text-align: center;
+    margin: 10px;
+}
+
+
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  /* display: flex; */
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 10px 0;
+  /* color: white; */
+  color: black;
+}
+
+li strong{
+    margin: 0 0 0 10px;
+}
+
+li img{
+    height:40px ;
+    width: 40px;
+}
+
+#song-info{
+display: flex;
+align-items: center;
+}
+
+#get-lyrics, #extra-lyrics {
+  border-radius: 12px;
+  padding: 3px 10px;
+}
+
+#get-lyrics h2 {
+  margin: 0 0 15px 0;
+}
+
+#next-buttons {
+  display: flex;
+  justify-content: center;
+}
