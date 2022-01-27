@@ -1,0 +1,10 @@
+https://faizallkhan.github.io/Lyrics-Search/
+
+
+Note:- Please ensure that insecure content is set to "Allow" while viewing online.
+
+Steps to allow insecure content:-
+-Click on the lock icon on the left side of the url bar.
+-Select site settings.
+-Scroll down and look for Insecure Content.
+-Select Allow and reload the site.

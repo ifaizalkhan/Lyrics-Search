@@ -3,6 +3,7 @@ const lyricpoint = "https://api.lyrics.ovh/v1/";
 const searchInput = document.getElementById("search");
 const displayInput = document.querySelector("#suggestions");
 const moreButtons = document.getElementById("next-buttons");
+const html2 = `<button id="extra-lyrics" onclick="window.location.reload()">Home</button>`;
 
 function songSearch() {
   let searchText = searchInput.value;
@@ -20,27 +21,33 @@ async function songPrint(searchText) {
     .then((blob) => blob.json())
     .then((data) => searchArray.push(...data.data));
   console.log(searchArray);
+  if (searchArray.length === 0) {
+    displayInput.innerHTML = `<div><p style="text-align:center" > No Record Found. Please try again!!</p></div>`;
+    moreButtons.innerHTML = html2;
+  }
+
+  else{
   const html = searchArray
-    .map((res) => {
+    .map((prop) => {
       return `
             <ul><li>  
-                <span id="song-info"><img alt="album" src="${res.album.cover_small}"><strong>${res.artist.name}</strong> - ${res.title} </span>
-                <button id="get-lyrics" onclick="lyricsSearch('${res.artist.name}','${res.title.replace(/[^\w ]/,)}','${res.preview}')">Get Lyrics</button>
+                <span id="song-info"><img alt="album" src="${prop.album.cover_small}"><strong>${prop.artist.name}</strong> - ${prop.title} </span>
+                <button id="get-lyrics" onclick="lyricsSearch('${prop.artist.name}','${prop.title.replace(/['"]/, "*")}','${prop.preview}')">Get Lyrics</button>
             </li></ul>`;
     }).join("");
-  let html2 = `<button id="extra-lyrics">Next</button>`;
+  // let html2 = `<button id="extra-lyrics" onclick="window.location.reload()">Done</button>`;
   document.title = `Search Results - ${searchText}`;
   moreButtons.innerHTML = html2;
-  displayInput.innerHTML = html;
+  displayInput.innerHTML = html;}
 }
 
-async function lyricsSearch(artistName,songTitle, preview) {
+async function lyricsSearch(artistName, songTitle, preview) {
   // let link2 = lyricpoint + artistName + "/" +songTitle;
-  // console.log(link2);
-  songTitle=songTitle.replace(undefined,"'")
-  let res = await fetch(`${lyricpoint}/${artistName}/${songTitle}`).then((blob) => blob.json());
-  console.log(res);
-  if (res.error) {
+
+  songTitle = songTitle.replace("*", "'")
+  let prop = await fetch(`${lyricpoint}/${artistName}/${songTitle}`).then((blob) => blob.json());
+
+  if (prop.error) {
     alert("No Lyrics Found");
   } else {
     document.title = `${songTitle} Lyrics`;
@@ -49,10 +56,10 @@ async function lyricsSearch(artistName,songTitle, preview) {
   let html = `
             <h2> <strong>${artistName}</strong> - ${songTitle}</h2>
             <audio controls><source src="${preview}"></audio>
-            <div><p> ${res.lyrics.replace(/(\r\n|\n\n|\r|\n)/gi, '<br>')} </p></div>
+            <div><p> ${prop.lyrics.replace(/(\r\n|\n\n|\r|\n)/gi, '<br>')} </p></div>
         `;
   displayInput.innerHTML = html;
-  moreButtons.innerHTML = `<button id="extra-lyrics" onclick="window.location.reload()">Done</button>`;
+  moreButtons.innerHTML = html2;
 }
 
 window.onload = function () {

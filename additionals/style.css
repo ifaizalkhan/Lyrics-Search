@@ -73,7 +73,7 @@ button:active {
 #suggestions {
   /* border: 2px solid black; */
   color: black;
-  margin: 30px auto;
+  margin: 10px auto 0 auto;
   max-width: 100%;
   width: 500px;
   /* background-image: radial-gradient(circle at top left,#28214c,#1c1d23 60%); */
@@ -136,6 +136,11 @@ align-items: center;
 #get-lyrics, #extra-lyrics {
   border-radius: 12px;
   padding: 3px 10px;
+}
+#extra-lyrics{
+  border-radius: 12px;
+  padding: 3px 10px;
+  /* margin: 3px 0; */
 }
 
 #get-lyrics h2 {
